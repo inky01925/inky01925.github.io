@@ -1,0 +1,79 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #2c3e50; /* Dark blue-gray */
+    background-color: #f2fcff; /* Light gray */
+    padding: 20px;
+    text-align: center; /* Center-align text */
+}
+
+/* Header styling */
+header {
+    background: #2980b9; /* Blue */
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 5px solid #3498db; /* Lighter blue */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* Navigation styling */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #2980b9; /* Blue */
+    padding: 10px 0;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1.1em;
+}
+
+nav a:hover {
+    background: #3498db; /* Lighter blue */
+    transition: background 0.3s ease-in-out;
+}
+
+/* Main content styling */
+main {
+    margin: 20px 0;
+}
+
+main h2 {
+    color: #2980b9; /* Blue */
+    margin-bottom: 10px;
+}
+
+main p {
+    margin-bottom: 20px;
+}
+
+/* Footer styling */
+footer {
+    background: #2980b9; /* Blue */
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}

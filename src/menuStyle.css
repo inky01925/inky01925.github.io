@@ -1,0 +1,40 @@
+#menu-button {
+    position: fixed; /* Fixed position */
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 15px 32px; /* Some padding */
+    text-align: center; /* Centered text */
+    font-size: 16px; /* Increase font size */
+    margin: 4px 2px; /* Some margin */
+    cursor: pointer; /* Pointer/hand icon */
+    border-radius: 12px; /* Rounded corners */
+    top: 15px; /* Place the button near the top */
+    left: 10px; /* Place the button near the left */
+}
+
+.menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f0f0f0;
+    overFlow-x: hidden;
+    transition: 0.25s;
+    padding-top: 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu .closeBtn {
+    position: relative;
+    top: -50px;
+    left: 60px;
+    font-size: 36px;
+    margin-left: 50px;
+    cursor: pointer;
+    color: black;
+}
