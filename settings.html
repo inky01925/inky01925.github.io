@@ -4,47 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .dark-mode {
-            background-color: #333;
-            color: #f0f0f0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        .setting {
-            margin-bottom: 20px;
-        }
-        .setting label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .setting input[type="text"],
-        .setting input[type="password"],
-        .setting select {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        .dark-mode-toggle {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-    </style>
+    <link href="settingsStyles.css" rel="stylesheet">
+    <link href="menuStyle.css" rel="stylesheet">
+    <script defer src="settings.js"></script>
+    <script defer src="menu.js"></script>
 </head>
 <body>
     <div class="container">
@@ -70,12 +33,12 @@
             <button id="darkModeButton">Toggle Dark Mode</button>
         </div>
     </div>
-
-    <script>
-        const darkModeButton = document.getElementById('darkModeButton');
-        darkModeButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
-    </script>
+    <button id="menu-button">☰</button>
+        <div id="side-menu" class="menu">
+            <span class="closeBtn">&times;</span>
+            <h2>Pages</h2>
+            <li><a href="index.html">Dev Page</a></li>
+            <li><a href="Main.html">Main page</a></li>
+            <li><a href="settings.html">Settings</a></li>
 </body>
 </html>
