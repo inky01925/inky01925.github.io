@@ -4,7 +4,7 @@ Digital tech binder for FRC Team 9450, hosted on GitHub Pages.
 
 ## Live Site
 Once deployed, your site will be available at:
-`https://YOUR-USERNAME.github.io/9450-tech-binder/`
+`https://inky01925.github.io/9450-tech-binder/`
 
 ## How to update content
 All content lives in `index.html`. Search for `placeholder` to find every field that needs filling in.
