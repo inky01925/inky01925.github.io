@@ -112,27 +112,39 @@ body{
 .mech-left{
   background:var(--surf);border-right:1px solid rgba(36,64,184,0.2);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:48px 36px;gap:24px;position:sticky;top:52px;
+  padding:40px 36px;gap:20px;position:sticky;top:52px;
   height:calc(100vh - 52px);
 }
 .mech-photo{
-  width:100%;flex:1;min-height:300px;
-  background:var(--surf2);border:2px dashed rgba(36,64,184,0.25);
-  border-radius:12px;display:flex;align-items:center;justify-content:center;
-  flex-direction:column;gap:10px;max-height:400px;
+  width:100%;flex:1;min-height:300px;max-height:420px;
+  background:#f8f8f6;
+  border-radius:12px;
+  box-shadow:0 4px 32px rgba(0,0,0,0.45), 0 1px 4px rgba(0,0,0,0.3);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:10px;
+  overflow:hidden;
+  position:relative;
 }
-.mech-photo i{font-size:36px;color:var(--surf3);}
-.mech-photo span{font-size:10px;color:rgba(255,255,255,0.08);font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+/* thin blue+orange accent line along the top of the white card */
+.mech-photo::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue-lt),var(--orange));
+  border-radius:12px 12px 0 0;
+}
+.mech-photo i{font-size:36px;color:#c8c8c0;}
+.mech-photo span{font-size:10px;color:#b0b0a8;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+/* when an actual image is placed inside .mech-photo */
+.mech-photo img{width:100%;height:100%;object-fit:contain;padding:16px;}
 .mech-img-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
 .imgtab{
   font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
   padding:6px 16px;border-radius:20px;
-  border:1px solid rgba(255,255,255,0.1);background:transparent;
-  color:var(--muted);cursor:pointer;font-family:'Rajdhani',sans-serif;
+  border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);
+  color:var(--muted2);cursor:pointer;font-family:'Rajdhani',sans-serif;
   transition:all .12s;
 }
 .imgtab.active{background:var(--orange);color:#fff;border-color:var(--orange);}
-.imgtab:hover:not(.active){color:var(--text);}
+.imgtab:hover:not(.active){color:var(--text);border-color:rgba(255,255,255,0.25);}
 
 .mech-right{padding:52px 44px;display:flex;flex-direction:column;justify-content:center;}
 .mech-eyebrow{font-size:10px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:3px;margin-bottom:10px;}
@@ -368,13 +380,12 @@ body{
 <!-- ── DRIVETRAIN ── -->
 <section class="section mech-section" id="sec-drivetrain">
   <div class="mech-left">
-    <div class="mech-photo">
-      <i class="ti ti-camera-off"></i>
-      <span>CAD / photo placeholder</span>
+    <div class="mech-photo" id="dt-photo">
+      <img src="images/drivebase.png" alt="Drivebase CAD render"/>
     </div>
     <div class="mech-img-tabs">
-      <button class="imgtab active" onclick="setImgTab(this)">Drivetrain</button>
-      <button class="imgtab" onclick="setImgTab(this)">Swerve Module</button>
+      <button class="imgtab active" onclick="setImgTab(this,'dt-photo','images/drivebase.png','Drivebase CAD render')">Drivebase</button>
+      <button class="imgtab" onclick="setImgTab(this,'dt-photo','images/swerve-module.png','Swerve module CAD render')">Swerve Module</button>
     </div>
   </div>
   <div class="mech-right">
@@ -403,14 +414,14 @@ body{
 <!-- ── MECHANISMS ── -->
 <section class="section mech-section" id="sec-mechanisms">
   <div class="mech-left">
-    <div class="mech-photo">
-      <i class="ti ti-camera-off"></i>
-      <span>CAD / photo placeholder</span>
+    <div class="mech-photo" id="mech-photo">
+      <img src="images/intake.png" alt="Intake CAD render"/>
     </div>
     <div class="mech-img-tabs">
-      <button class="imgtab active" onclick="setImgTab(this)">Intake</button>
-      <button class="imgtab" onclick="setImgTab(this)">Scorer</button>
-      <button class="imgtab" onclick="setImgTab(this)">Climb</button>
+      <button class="imgtab active" onclick="setImgTab(this,'mech-photo','images/intake.png','Intake CAD render')">Intake</button>
+      <button class="imgtab" onclick="setImgTab(this,'mech-photo','images/indexer.png','Transfer/Indexer CAD render')">Indexer</button>
+      <button class="imgtab" onclick="setImgTab(this,'mech-photo','images/shooter.png','Shooter CAD render')">Shooter</button>
+      <button class="imgtab" onclick="setImgTab(this,'mech-photo','images/turret.png','Turret CAD render')">Turret</button>
     </div>
   </div>
   <div class="mech-right">
@@ -428,7 +439,8 @@ body{
     <div class="feat-label">FEATURES</div>
     <div class="feat-list">
       <div class="feat-item"><div class="feat-dot"></div><div><div class="feat-text">Intake — drop-down design with active vectoring</div><div class="feat-subs"><div class="feat-sub">Funnels fuel inward toward a centered bumper gap</div><div class="feat-sub">Drop-down geometry keeps the intake protected when not in use</div></div></div></div>
-      <div class="feat-item"><div class="feat-dot"></div><div><div class="feat-text">Shooter — single turreted pivotable hood</div><div class="feat-subs"><div class="feat-sub">Turret allows shot direction adjustment without repositioning the robot</div><div class="feat-sub">Pivotable hood enables variable shot angle for different scoring positions</div></div></div></div>
+      <div class="feat-item"><div class="feat-dot"></div><div><div class="feat-text">Transfer / Indexer — routes fuel from intake to shooter</div><div class="feat-subs"><div class="feat-sub">Bridges the intake and shooter with controlled, consistent ball flow</div><div class="feat-sub">Ensures correct positioning and timing before each shot</div></div></div></div>
+      <div class="feat-item"><div class="feat-dot"></div><div><div class="feat-text">Shooter — single turreted design with pivotable hood</div><div class="feat-subs"><div class="feat-sub">Turret allows shot direction adjustment without repositioning the robot</div><div class="feat-sub">Pivotable hood enables variable shot angle for different scoring positions</div></div></div></div>
       <div class="feat-item"><div class="feat-dot"></div><div><div class="feat-text">Endgame / Climb — placeholder</div><div class="feat-subs"><div class="feat-sub">Details coming soon</div></div></div></div>
     </div>
   </div>
@@ -559,10 +571,23 @@ function setSeason(y,btn){
   ).join('');
 }
 
-function setImgTab(btn){
-  const wrap=btn.closest('.mech-img-tabs');
-  wrap.querySelectorAll('.imgtab').forEach(t=>t.classList.remove('active'));
+function setImgTab(btn, photoId, src, alt){
+  // swap active tab style
+  const wrap = btn.closest('.mech-img-tabs');
+  wrap.querySelectorAll('.imgtab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
+  // swap the image
+  const photo = document.getElementById(photoId);
+  if(!photo) return;
+  let img = photo.querySelector('img');
+  if(!img){
+    // first time — clear placeholder icon and create img
+    photo.innerHTML = '';
+    img = document.createElement('img');
+    photo.appendChild(img);
+  }
+  img.src = src;
+  img.alt = alt;
 }
 
 // Scroll spy — highlights nothing in nav (nav links removed), just runs
